@@ -48,10 +48,10 @@ for (let linhaIndex = 0; linhaIndex < linha; linhaIndex++) {
             classColuna = 'div-coluna desativado';
         }
         divisaoColuna.setAttribute('class', classColuna);
-        divisaoLinha.appendChild(divisaoColuna); // Adicione a coluna como uma peça da máquina
+        divisaoLinha.append(divisaoColuna); // Adicione a coluna como uma peça da máquina
         tentativas[linhaIndex][colunaIndex] = ''; // A tentativa começa vazia
     }
-    divisao.appendChild(divisaoLinha); // Adicione a linha como parte da grande engrenagem
+    divisao.append(divisaoLinha); // Adicione a linha como parte da grande engrenagem
 }
 
 // Inspeção da tentativa
@@ -91,7 +91,7 @@ const checkTentativa = () => {
 const proximaLinha = () => {
     let digColuna = document.querySelectorAll('.digitando');
     // Seleciona todos os elementos com a classe digitando
-    for (let i = 0; i < coluna; i++) {
+    for (let i = 0; i < digColuna.length; i++) {
         digColuna[i].classList.remove('digitando');
         digColuna[i].classList.add('desativado');
     }
@@ -99,7 +99,8 @@ const proximaLinha = () => {
     colunaAtual = 0;
     // linhaAtual++ para ir para a próxima linha e a coluna volta a ser 0 para ser a primeira caixinha da linha
 
-    const linhaAtualElemento = document.querySelectorAll('.div-coluna');
+    const linhaAtualElemento = document.querySelector('#linha' + linhaAtual);
+    let atColuna = linhaAtualElemento.querySelectorAll('.div-coluna')
     for (let i = 0; i < atColuna.length; i++) {
         atColuna[i].classList.remove('desativado');
         atColuna[i].classList.add('digitando');
@@ -125,7 +126,7 @@ const criarLinhaTeclado = (keys, linhaTeclado) => {
         botaoElemento.textContent = key;
         botaoElemento.setAttribute('id', key);
         botaoElemento.addEventListener('click', () => tecladoOnClick(key));
-        linhaTeclado.appendChild(botaoElemento); // Corrija para 'appendChild' em vez de 'append'
+        linhaTeclado.append(botaoElemento);
     });
 };
 

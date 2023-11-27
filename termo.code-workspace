@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../Downloads/Mitr"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "termo"
+	}
+}
